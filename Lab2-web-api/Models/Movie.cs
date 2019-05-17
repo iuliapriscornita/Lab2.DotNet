@@ -17,10 +17,10 @@ namespace Lab2_web_api.Models
     {
         public int Id { get; set; }
         public string Title { get; set;}
+        public int Duration { get; set; }
         public string Description { get; set;}
-        public string Genre { get; set;}
         [EnumDataType(typeof(MovieGenre))]
-        public int Duration { get; set;}
+        public string Genre { get; set;}
         public int YearOfRelease { get; set;}
         public string Director { get; set;}
         public DateTime DateAdded { get; set;}

@@ -14,8 +14,7 @@ namespace Lab2_web_api.Models
         }
 
         // DbSet = Repository
-        // DbSet = O tabela din baza de date
-
+       
         public DbSet<Movie> Movies { get; set; }
       //  public DbSet<Comment>Coments { get; set; }
 

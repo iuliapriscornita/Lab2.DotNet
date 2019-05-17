@@ -26,8 +26,8 @@ namespace Lab2_web_api.Models
                     YearOfRelease = 2000,
                     Director = "Ion",
                     Rating = 4,
-                    Watched = true, 
-                 },
+                    Watched = true,
+                },
                 new Movie
                 {
 
@@ -39,8 +39,7 @@ namespace Lab2_web_api.Models
                     Director = "Ion",
                     Rating = 4,
                     Watched = true,
-
-                }
+                            }
             );
             context.SaveChanges(); // commit transaction
 
