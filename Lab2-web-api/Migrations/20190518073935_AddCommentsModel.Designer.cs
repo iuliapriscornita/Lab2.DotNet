@@ -4,14 +4,16 @@ using Lab2_web_api.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Lab2_web_api.Migrations
 {
     [DbContext(typeof(MoviesDbContext))]
-    partial class MoviesDbContextModelSnapshot : ModelSnapshot
+    [Migration("20190518073935_AddCommentsModel")]
+    partial class AddCommentsModel
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -27,13 +29,9 @@ namespace Lab2_web_api.Migrations
 
                     b.Property<bool>("Important");
 
-                    b.Property<int?>("MovieId");
-
                     b.Property<string>("Text");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("MovieId");
 
                     b.ToTable("Coments");
                 });
@@ -65,13 +63,6 @@ namespace Lab2_web_api.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Movies");
-                });
-
-            modelBuilder.Entity("Lab2_web_api.Models.Comment", b =>
-                {
-                    b.HasOne("Lab2_web_api.Models.Movie")
-                        .WithMany("Comments")
-                        .HasForeignKey("MovieId");
                 });
 #pragma warning restore 612, 618
         }
