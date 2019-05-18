@@ -22,9 +22,24 @@ namespace Lab2_web_api.Controllers
 
         // GET: api/Movies
         [HttpGet]
-        public IEnumerable<Movie> Get()
+        public IEnumerable<Movie> Get([FromQuery]DateTime? from, [FromQuery]DateTime? to)
         {
-            return context.Movies;
+            IQueryable<Movie> result = context.Movies;
+            if(from == null && to == null)
+            {
+                return result;
+            }
+            if(from!= null)
+            {
+                result = result.Where(m => m.DateAdded >= from);
+            }
+            if(to!= null)
+            {
+                result = result.Where(m => m.DateAdded <= to);
+            }
+            List<Movie> SortedList = result.OrderBy(o => o.YearOfRelease).ToList();
+            SortedList.Reverse();
+            return SortedList;
         }
 
         // GET: api/Movies/5
