@@ -20,6 +20,9 @@ namespace Lab2_web_api.Controllers
             this.context = context;
         }
 
+        
+
+
         // GET: api/Movies
         [HttpGet]
         public IEnumerable<Movie> Get([FromQuery]DateTime? from, [FromQuery]DateTime? to)
